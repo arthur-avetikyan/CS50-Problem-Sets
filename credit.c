@@ -20,6 +20,7 @@ int main(void)
         }
         else
         {
+            printf("INVALID\n");
             exit = false;
         }
     }
@@ -78,12 +79,11 @@ bool test_card_number(long cardNumber)
         {
             return false;
         }
-    }
+    } 
     else
     {
-        printf("INVALID\n");
         return false;
-    }    
+    }
 }
 
 // Returns a specified number raised to the specified power.
