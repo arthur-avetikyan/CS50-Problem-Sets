@@ -12,10 +12,6 @@ int main(void)
     {
         print_pyramid(n);
     }
-    else
-    {
-        printf("Type valid number.\n");
-    }
 }
 
 // Use this method to paint the pyramid.
