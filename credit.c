@@ -18,6 +18,10 @@ int main(void)
             determine_card_type(cardNumber);
             exit = false;
         }
+        else
+        {
+            exit = false;
+        }
     }
 }
 
