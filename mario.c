@@ -7,25 +7,23 @@ void print_right_column(int i);
 
 int main(void)
 {
-    while(true)
+    int n = get_int("How much?\n");
+    if (n > 0 && n < 9)
     {
-        int n = get_int("How much?\n");
-        if(n > 0 && n < 9)
-        {
-            print_pyramid(n);
-        }
-        else
-        {
-            printf("Type valid number.\n");
-        }
+        print_pyramid(n);
+    }
+    else
+    {
+        printf("Type valid number.\n");
     }
 }
 
+// Use this method to paint the pyramid.
 void print_pyramid(int n)
 {
     int y;
     int z;
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {   
         y = n - i - 1;
         z = n - y;
@@ -36,21 +34,24 @@ void print_pyramid(int n)
         printf("\n");   
     }
 }
- void print_left_column(int y, int z)
- {
-     for(; y > 0; y--)
-     {
-         printf(" ");  
-     }   
-     for(; z > 0; z--)
-     {
-         printf("#");
-     }
- }
 
+// Use this method to paint left side of pyramid.
+void print_left_column(int y, int z)
+{
+    for (; y > 0; y--)
+    {
+        printf(" ");
+    }   
+    for (; z > 0; z--)
+    {
+        printf("#");
+    }
+}
+
+// Use this method to paint right side of pyramid.
 void print_right_column(int i)
 {
-    for(int y = 0; y < i + 1; y++)
+    for (int y = 0; y < i + 1; y++)
     {
         printf("#");
     }
