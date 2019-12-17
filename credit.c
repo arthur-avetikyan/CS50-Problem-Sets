@@ -17,7 +17,11 @@ int main(void)
         {
             determine_card_type(cardNumber);
             exit = false;
-        }        
+        }   
+        else
+        {
+            printf("INVALID\n");
+        }
     }
 }
 
