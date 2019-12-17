@@ -7,11 +7,17 @@ void print_right_column(int i);
 
 int main(void)
 {
-    int n = get_int("How much?\n");
-    if (n > 0 && n < 9)
+    int n;
+    do
     {
-        print_pyramid(n);
+        n = get_int("How much?\n");
+        if (n > 0 && n < 9)
+        {
+            print_pyramid(n);
+        }
+        
     }
+    while (n > 0 && n < 9);
 }
 
 // Use this method to paint the pyramid.
