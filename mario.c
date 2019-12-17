@@ -8,12 +8,14 @@ void print_right_column(int i);
 int main(void)
 {
     int n;
-    while (true)
+    bool exit = true;
+    while (exit)
     {
         n = get_int("Height:\n");
         if (n > 0 && n < 9)
         {
             print_pyramid(n);
+            exit = false;
         }        
     }
 }
