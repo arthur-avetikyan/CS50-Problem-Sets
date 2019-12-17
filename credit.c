@@ -17,10 +17,6 @@ int main(void)
         {
             determine_card_type(cardNumber);
             exit = false;
-        }   
-        else
-        {
-            printf("INVALID\n");
         }
     }
 }
@@ -55,26 +51,35 @@ void determine_card_type(long cardNumber)
 // Card number validation test.
 bool test_card_number(long cardNumber)
 {
-    long evenDigitsSum = 0;
-    long evenDigits = 0;
-    long oddDigits = 0;
-    long oddDigitsSum = 0;
-    for (long i = 100; i < Pow(10, 17); i *= 100)
+    if (cardNumber < Pow(10, 17) && cardNumber >= Pow(10, 14))
     {
-        evenDigits = (((cardNumber % i) - (cardNumber % (i / 10))) / (i / 10)) * 2;
-        evenDigitsSum = evenDigitsSum + (evenDigits % 10 + ((evenDigits % 100) - (evenDigits % 10)) / 10);
+        long evenDigitsSum = 0;
+        long evenDigits = 0;
+        long oddDigits = 0;
+        long oddDigitsSum = 0;
+        for (long i = 100; i < Pow(10, 17); i *= 100)
+        {
+            evenDigits = (((cardNumber % i) - (cardNumber % (i / 10))) / (i / 10)) * 2;
+            evenDigitsSum = evenDigitsSum + (evenDigits % 10 + ((evenDigits % 100) - (evenDigits % 10)) / 10);
+            
+            oddDigits = ((cardNumber % (i / 10)) - (cardNumber % (i / 100))) / (i / 100);
+            oddDigitsSum = oddDigitsSum + oddDigits;
+        } 
         
-        oddDigits = ((cardNumber % (i / 10)) - (cardNumber % (i / 100))) / (i / 100);
-        oddDigitsSum = oddDigitsSum + oddDigits;
-    }  
-    if ((evenDigitsSum + oddDigitsSum) % 10 == 0)
-    {
-        return true;
+        if ((evenDigitsSum + oddDigitsSum) % 10 == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     else
     {
+        printf("INVALID\n");
         return false;
-    }
+    }    
 }
 
 // Returns a specified number raised to the specified power.
