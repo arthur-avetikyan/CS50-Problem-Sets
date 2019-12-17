@@ -8,16 +8,14 @@ void print_right_column(int i);
 int main(void)
 {
     int n;
-    do
+    while (true)
     {
-        n = get_int("How much?\n");
+        n = get_int("Height:\n");
         if (n > 0 && n < 9)
         {
             print_pyramid(n);
-        }
-        
+        }        
     }
-    while (n > 0 && n < 9);
 }
 
 // Use this method to paint the pyramid.
@@ -31,7 +29,7 @@ void print_pyramid(int n)
         z = n - y;
         
         print_left_column(y, z);        
-        printf(" ");
+        printf("  ");
         print_right_column(i);        
         printf("\n");   
     }
