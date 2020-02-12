@@ -7,28 +7,28 @@
 int Count_Letters(string text);
 int Count_Words(string text);
 int Count_Sentences(string text);
-float Average_Letters(int letters, int words);
-float Average_Sentences(int sentences, int words);
+float Average_Letters(float letters, float words);
+float Average_Sentences(float sentences, float words);
 float Coleman_Liau_Index(float avg_letters, float avg_sentences);
 
 int main(void)
 {
     string text = get_string("Text: ");
 
-    int letters = Count_Letters(text);
-    int words = Count_Words(text);
-    int sentences = Count_Sentences(text);
+    float letters = Count_Letters(text);
+    float words = Count_Words(text);
+    float sentences = Count_Sentences(text);
 
     float avg_letters = Average_Letters(letters, words);
     float avg_sentences = Average_Sentences(sentences, words);
 
     int index = roundf(Coleman_Liau_Index(avg_letters, avg_sentences));
 
-    if(index < 1)
+    if (index < 1)
     {
         printf("Before Grade 1");
     }
-    else if(index < 17)
+    else if (index < 17)
     {
         printf("Grade %i", index);
     }
@@ -90,13 +90,13 @@ int Count_Sentences(string text)
 }
 
 // Returns average count of letters per 100 words
-float Average_Letters(int letters, int words)
+float Average_Letters(float letters, float words)
 {
     return (letters * 100) / words;
 }
 
 // Returns average count of sentences per 100 words
-float Average_Sentences(int sentences, int words)
+float Average_Sentences(float sentences, float words)
 {
     return (sentences * 100) / words;
 }
