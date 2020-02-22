@@ -29,6 +29,7 @@ int main(int argc, string argv[])
     cypher_text(cyphertext, key, plaintext);
 
     printf("ciphertext: %s\n", cyphertext);
+    return 0;
 }
 
 int check_key (string key)
@@ -69,15 +70,19 @@ void cypher_text(string cyphertext, string key, string plaintext)
 
     for (int i = 0; i < strlen(plaintext); i++)
     {
-        if (plaintext[i] <= 'Z')
+        if (plaintext[i] <= 'Z' || plaintext[i] >= 'A')
         {
             index = contains_in_index(all_upper, plaintext[i]);
             temp = key[index];
         }
-        else
+        else if (plaintext[i] <= 'z' || plaintext[i] >= 'a')
         {
             index = contains_in_index(all_lower, plaintext[i]);
             temp = key[index] + 'a' - 'A';
+        }
+        else
+        {
+            temp = plaintext[i];
         }
         cyphertext[i] = temp;
     }
