@@ -28,7 +28,7 @@ int main(int argc, string argv[])
     char cyphertext[strlen(plaintext)];
     cypher_text(cyphertext, key, plaintext);
 
-    printf("ciphertext: %s\n", cyphertext);
+    printf("ciphertext: %s", cyphertext);
     return 0;
 }
 
