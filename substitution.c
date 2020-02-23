@@ -7,7 +7,7 @@
 int check_key (string key);
 bool check_key_chars(string key);
 void cypher_text(string cyphertext, string key, string plaintext);
-int contains_in_index(string key, char value);
+int indexof(string key, char value);
 
 int main(int argc, string argv[])
 {
@@ -83,13 +83,13 @@ void cypher_text(string cyphertext, string key, string plaintext)
     {
         if (plaintext[i] <= 'Z' && plaintext[i] >= 'A')
         {
-            index = contains_in_index(all_upper, plaintext[i]);
-            temp = key[index];
+            index = indexof(all_upper, plaintext[i]);
+            temp = key[index] <= 'Z' && plaintext[i] >= 'A' ? key[index] : key[index] + 'a' - 'A';
         }
         else if (plaintext[i] <= 'z' && plaintext[i] >= 'a')
         {
-            index = contains_in_index(all_lower, plaintext[i]);
-            temp = key[index] + 'a' - 'A';
+            index = indexof(all_lower, plaintext[i]);
+            temp = key[index] <= 'Z' && plaintext[i] >= 'A' ? key[index] : key[index] + 'a' - 'A';
         }
         else
         {
@@ -99,7 +99,7 @@ void cypher_text(string cyphertext, string key, string plaintext)
     }
 }
 
-int contains_in_index(string key, char value)
+int indexof(string key, char value)
 {
     for (int i = 0; i < strlen(key); i++)
     {
