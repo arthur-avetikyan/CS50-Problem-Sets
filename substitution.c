@@ -84,12 +84,12 @@ void cypher_text(string cyphertext, string key, string plaintext)
         if (plaintext[i] <= 'Z' && plaintext[i] >= 'A')
         {
             index = indexof(all_upper, plaintext[i]);
-            temp = key[index] <= 'Z' && key[i] >= 'A' ? key[index] : key[index] + 'a' - 'A';
+            temp = key[index] <= 'Z' && key[index] >= 'A' ? key[index] : key[index] + 'a' - 'A';
         }
         else if (plaintext[i] <= 'z' && plaintext[i] >= 'a')
         {
             index = indexof(all_lower, plaintext[i]);
-            temp = key[index] <= 'z' && key[i] >= 'a' ? key[index] : key[index] + 'a' - 'A';
+            temp = key[index] <= 'z' && key[index] >= 'a' ? key[index] : key[index] + 'a' - 'A';
         }
         else
         {
