@@ -84,7 +84,7 @@ void cypher_text(string cyphertext, string key, string plaintext)
         if (plaintext[i] <= 'Z' && plaintext[i] >= 'A')
         {
             index = indexof(all_upper, plaintext[i]);
-            temp = key[index] <= 'Z' && key[index] >= 'A' ? key[index] : key[index] + 'a' - 'A';
+            temp = key[index] <= 'Z' && key[index] >= 'A' ? key[index] : key[index] - 'a' + 'A';
         }
         else if (plaintext[i] <= 'z' && plaintext[i] >= 'a')
         {
@@ -96,6 +96,7 @@ void cypher_text(string cyphertext, string key, string plaintext)
             temp = plaintext[i];
         }
         cyphertext[i] = temp;
+        //printf("tenp = %c\n cypher = %s\n",temp, cyphertext);
     }
 }
 
