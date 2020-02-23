@@ -29,7 +29,6 @@ int main(int argc, string argv[])
     cipher_text(ciphertext, key, plaintext);
 
     printf("ciphertext: %s\n", ciphertext);
-    return 0;
 }
 
 int check_key (string key)
