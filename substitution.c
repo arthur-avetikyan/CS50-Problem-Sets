@@ -7,7 +7,6 @@
 int check_key (string key);
 bool check_key_chars(string key);
 void cipher_text(string ciphertext, string key, string plaintext);
-int indexof(string key, char value);
 
 int main(int argc, string argv[])
 {
@@ -25,10 +24,11 @@ int main(int argc, string argv[])
     }
 
     string plaintext = get_string("plaintext: ");
-    char ciphertext[strlen(plaintext)];
+    string ciphertext = plaintext;
+    //[strlen(plaintext)];
     cipher_text(ciphertext, key, plaintext);
 
-    printf("ciphertext: %s \n", ciphertext);
+    printf("ciphertext: %s\n", ciphertext);
 }
 
 int check_key (string key)
@@ -72,8 +72,8 @@ bool check_key_chars(string key)
 
 void cipher_text(string ciphertext, string key, string plaintext)
 {
-    string all_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    string all_lower = "abcdefghijklmnopqrstuvwxyz";
+    //string all_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    //string all_lower = "abcdefghijklmnopqrstuvwxyz";
     int index = 0;
     char temp;
 
@@ -81,12 +81,12 @@ void cipher_text(string ciphertext, string key, string plaintext)
     {
         if (plaintext[i] <= 'Z' && plaintext[i] >= 'A')
         {
-            index = indexof(all_upper, plaintext[i]);
+            index = plaintext[i] - 'A';
             temp = key[index] <= 'Z' && key[index] >= 'A' ? key[index] : key[index] - 'a' + 'A';
         }
         else if (plaintext[i] <= 'z' && plaintext[i] >= 'a')
         {
-            index = indexof(all_lower, plaintext[i]);
+            index = plaintext[i] - 'a';
             temp = key[index] <= 'z' && key[index] >= 'a' ? key[index] : key[index] + 'a' - 'A';
         }
         else
@@ -95,16 +95,4 @@ void cipher_text(string ciphertext, string key, string plaintext)
         }
         ciphertext[i] = temp;
     }
-}
-
-int indexof(string key, char value)
-{
-    for (int i = 0; i < strlen(key); i++)
-    {
-        if (key[i] == value)
-        {
-            return i;
-        }
-    }
-    return 1000;
 }
