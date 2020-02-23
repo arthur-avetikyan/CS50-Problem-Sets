@@ -28,7 +28,7 @@ int main(int argc, string argv[])
     char ciphertext[strlen(plaintext)];
     cipher_text(ciphertext, key, plaintext);
 
-    printf("ciphertext: %s\n", ciphertext);
+    printf("ciphertext: %s \n", ciphertext);
 }
 
 int check_key (string key)
@@ -94,7 +94,6 @@ void cipher_text(string ciphertext, string key, string plaintext)
             temp = plaintext[i];
         }
         ciphertext[i] = temp;
-        //printf("tenp = %c\n cypher = %s\n",temp, ciphertext);
     }
 }
 
@@ -107,6 +106,5 @@ int indexof(string key, char value)
             return i;
         }
     }
-
     return 1000;
 }
