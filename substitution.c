@@ -6,7 +6,7 @@
 
 int check_key (string key);
 bool check_key_chars(string key);
-void cypher_text(string cyphertext, string key, string plaintext);
+void cipher_text(string ciphertext, string key, string plaintext);
 int indexof(string key, char value);
 
 int main(int argc, string argv[])
@@ -25,10 +25,10 @@ int main(int argc, string argv[])
     }
 
     string plaintext = get_string("plaintext: ");
-    char cyphertext[strlen(plaintext)];
-    cypher_text(cyphertext, key, plaintext);
+    char ciphertext[strlen(plaintext)];
+    cipher_text(ciphertext, key, plaintext);
 
-    printf("ciphertext: %s", cyphertext);
+    printf("ciphertext: %s\n", ciphertext);
     return 0;
 }
 
@@ -61,7 +61,6 @@ bool check_key_chars(string key)
         }
         for (int y = i + 1; y < strlen(key); y++)
         {
-            //todo
             if (key[i] == key[y])
             {
                 check = true;
@@ -72,7 +71,7 @@ bool check_key_chars(string key)
     return check;
 }
 
-void cypher_text(string cyphertext, string key, string plaintext)
+void cipher_text(string ciphertext, string key, string plaintext)
 {
     string all_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     string all_lower = "abcdefghijklmnopqrstuvwxyz";
@@ -95,8 +94,8 @@ void cypher_text(string cyphertext, string key, string plaintext)
         {
             temp = plaintext[i];
         }
-        cyphertext[i] = temp;
-        //printf("tenp = %c\n cypher = %s\n",temp, cyphertext);
+        ciphertext[i] = temp;
+        //printf("tenp = %c\n cypher = %s\n",temp, ciphertext);
     }
 }
 
