@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <math.h>
 
-int check_key (string key);
+int check_key(string key);
 bool check_key_chars(string key);
 void cipher_text(string ciphertext, string key, string plaintext);
 
@@ -15,45 +15,45 @@ int main(int argc, string argv[])
 
     if (argc != 2)
     {
-        printf ("Usage: ./substitution key\n");
+        printf("Usage: ./substitution key\n");
         return 1;
     }
-    else if (check_key(key) == 1 )
+    else if (check_key(key) == 1)
     {
         return 1;
     }
 
     string plaintext = get_string("plaintext: ");
     string ciphertext = plaintext;
-    //[strlen(plaintext)];
     cipher_text(ciphertext, key, plaintext);
 
     printf("ciphertext: %s\n", ciphertext);
 }
 
-int check_key (string key)
+//Check if key is valid.
+int check_key(string key)
 {
     if (strlen(key) != 26)
     {
-       printf("Key must contain 26 characters.\n");
-       return 1;
+        printf("Key must contain 26 characters.\n");
+        return 1;
     }
     else if (check_key_chars(key))
     {
         printf("Key must contain only alphabetical non-reapeting characters.\n");
         return 1;
     }
-
     return 0;
 }
 
+//Check if characters in key are alphabetic and non-repeating.
 bool check_key_chars(string key)
 {
     bool check = false;
 
     for (int i = 0; i < strlen(key); i++)
     {
-        if ( key[i] < 'A' || (key[i] > 'Z' && key[i] < 'a') || key[i] > 'z')
+        if (key[i] < 'A' || (key[i] > 'Z' && key[i] < 'a') || key[i] > 'z')
         {
             check = true;
             break;
@@ -70,10 +70,9 @@ bool check_key_chars(string key)
     return check;
 }
 
+// Cipher text with given key.
 void cipher_text(string ciphertext, string key, string plaintext)
 {
-    //string all_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    //string all_lower = "abcdefghijklmnopqrstuvwxyz";
     int index = 0;
     char temp;
 
