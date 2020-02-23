@@ -41,7 +41,7 @@ int check_key (string key)
     }
     else if (check_key_chars(key))
     {
-        printf("Key must contain only alphabetical characters.\n");
+        printf("Key must contain only alphabetical non-reapeting characters.\n");
         return 1;
     }
 
@@ -50,15 +50,26 @@ int check_key (string key)
 
 bool check_key_chars(string key)
 {
+    bool check = false;
+
     for (int i = 0; i < strlen(key); i++)
     {
         if ( key[i] < 'A' || (key[i] > 'Z' && key[i] < 'a') || key[i] > 'z')
         {
-            return true;
+            check = true;
+            break;
+        }
+        for (int y = i + 1; y < strlen(key); y++)
+        {
+            //todo
+            if (key[i] == key[y])
+            {
+                check = true;
+                break;
+            }
         }
     }
-
-    return false;
+    return check;
 }
 
 void cypher_text(string cyphertext, string key, string plaintext)
