@@ -11,7 +11,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 	{
 		for (int y = 0; y < width; y++)
 		{
-			BYTE temp_color = round((image[i][y].rgbtBlue + image[i][y].rgbtGreen + image[i][y].rgbtRed) / 3);
+			BYTE temp_color = round((image[i][y].rgbtBlue + image[i][y].rgbtGreen + image[i][y].rgbtRed) / 3.0);
 
 			image[i][y].rgbtBlue = temp_color;
 			image[i][y].rgbtGreen = temp_color;
@@ -52,7 +52,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 			int rgbtGreen = 0;
 			int rgbtRed = 0;
 
-			int pixel_count = 1;
+			float pixel_count = 1.0;
 
 			BYTE average_blue = 0;
 			BYTE average_red = 0;
@@ -206,8 +206,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 			rgbtRed_gx	+= 1 * ((i + 1 >= 0 && i + 1 < height && y + 1 >= 0 && y + 1 < width) ? image[i + 1][y + 1].rgbtRed : 0);
 
 
-			if (((rgbtBlue_gy > -50 && rgbtBlue_gy < 50) && (rgbtGreen_gy > -50 && rgbtGreen_gy < 50) && (rgbtRed_gy > -50 && rgbtRed_gy < 50))
-				&& ((rgbtBlue_gx > -50 && rgbtBlue_gx < 50) && (rgbtGreen_gx > -50 && rgbtGreen_gx < 50) && (rgbtRed_gx > -50 && rgbtRed_gx < 50)))
+			if (((rgbtBlue_gy > -5 && rgbtBlue_gy < 5) && (rgbtGreen_gy > -5 && rgbtGreen_gy < 5) && (rgbtRed_gy > -5 && rgbtRed_gy < 5))
+				&& ((rgbtBlue_gx > -5 && rgbtBlue_gx < 5) && (rgbtGreen_gx > -5 && rgbtGreen_gx < 5) && (rgbtRed_gx > -5 && rgbtRed_gx < 5)))
 			{
 				temp_image[i][y].rgbtBlue = image[i][y].rgbtBlue;
 				temp_image[i][y].rgbtGreen = image[i][y].rgbtGreen;
@@ -215,9 +215,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 			}
 			else
 			{
-				avg_blue = (int) round(sqrt(pow(rgbtBlue_gy, 2) + pow(rgbtBlue_gx, 2)));
-				avg_green = (int) round(sqrt(pow(rgbtGreen_gy, 2) + pow(rgbtGreen_gx, 2)));
-				avg_red = (int) round(sqrt(pow(rgbtRed_gy, 2) + pow(rgbtRed_gx, 2)));
+				avg_blue = (int) round(sqrt(pow((float) rgbtBlue_gy, 2) + pow((float) rgbtBlue_gx, 2)));
+				avg_green = (int) round(sqrt(pow((float) rgbtGreen_gy, 2) + pow((float) rgbtGreen_gx, 2)));
+				avg_red = (int) round(sqrt(pow((float) rgbtRed_gy, 2) + pow((float) rgbtRed_gx, 2)));
 
 				temp_image[i][y].rgbtBlue = (BYTE) avg_blue;
 				temp_image[i][y].rgbtGreen = (BYTE) avg_green;
