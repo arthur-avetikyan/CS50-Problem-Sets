@@ -11,7 +11,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 	{
 		for (int y = 0; y < width; y++)
 		{
-			int temp_color = round((image[i][y].rgbtBlue + image[i][y].rgbtGreen + image[i][y].rgbtRed) / 3);
+			BYTE temp_color = round((image[i][y].rgbtBlue + image[i][y].rgbtGreen + image[i][y].rgbtRed) / 3);
 
 			image[i][y].rgbtBlue = temp_color;
 			image[i][y].rgbtGreen = temp_color;
@@ -206,8 +206,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 			rgbtRed_gx	+= 1 * ((i + 1 >= 0 && i + 1 < height && y + 1 >= 0 && y + 1 < width) ? image[i + 1][y + 1].rgbtRed : 0);
 
 
-			if (((rgbtBlue_gy > -10 && rgbtBlue_gy < 10) && (rgbtGreen_gy > -10 && rgbtGreen_gy < 10) && (rgbtRed_gy > -10 && rgbtRed_gy < 10))
-				&& ((rgbtBlue_gx > -10 && rgbtBlue_gx < 10) && (rgbtGreen_gx > -10 && rgbtGreen_gx < 10) && (rgbtRed_gx > -10 && rgbtRed_gx < 10)))
+			if (((rgbtBlue_gy > -50 && rgbtBlue_gy < 50) && (rgbtGreen_gy > -50 && rgbtGreen_gy < 50) && (rgbtRed_gy > -50 && rgbtRed_gy < 50))
+				&& ((rgbtBlue_gx > -50 && rgbtBlue_gx < 50) && (rgbtGreen_gx > -50 && rgbtGreen_gx < 50) && (rgbtRed_gx > -50 && rgbtRed_gx < 50)))
 			{
 				temp_image[i][y].rgbtBlue = image[i][y].rgbtBlue;
 				temp_image[i][y].rgbtGreen = image[i][y].rgbtGreen;
