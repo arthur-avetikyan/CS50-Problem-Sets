@@ -215,9 +215,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 			}
 			else
 			{
-				avg_blue = round(sqrt(pow(rgbtBlue_gy, 2) + pow(rgbtBlue_gx, 2)));
-				avg_green = round(sqrt(pow(rgbtGreen_gy, 2) + pow(rgbtGreen_gx, 2)));
-				avg_red = round(sqrt(pow(rgbtRed_gy, 2) + pow(rgbtRed_gx, 2)));
+				avg_blue = sqrt(pow(rgbtBlue_gy, 2) + pow(rgbtBlue_gx, 2));
+				avg_green = sqrt(pow(rgbtGreen_gy, 2) + pow(rgbtGreen_gx, 2));
+				avg_red = sqrt(pow(rgbtRed_gy, 2) + pow(rgbtRed_gx, 2));
 
 				temp_image[i][y].rgbtBlue = avg_blue > 255 ? 255 : (BYTE) avg_blue;
 				temp_image[i][y].rgbtGreen = avg_green > 255 ? 255 : (BYTE) avg_green;
