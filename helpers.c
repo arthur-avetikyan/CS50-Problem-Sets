@@ -168,12 +168,12 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 			rgbtBlue_gy += 2 * ((i + 1 >= 0 && i + 1 < height) ? image[i + 1][y].rgbtBlue : 0);
 			rgbtBlue_gy += 1 * ((i + 1 >= 0 && i + 1 < height && y + 1 >= 0 && y + 1 < width) ? image[i + 1][y + 1].rgbtBlue : 0);
 
-			rgbtGreen_gy += -1 * ((i - 1 >= 0 && i - 1 < height && y - 1 > 0 && y - 1 < width) ? image[i - 1][y - 1].rgbtGreen : 0);
+			rgbtGreen_gy += -1 * ((i - 1 >= 0 && i - 1 < height && y - 1 >= 0 && y - 1 < width) ? image[i - 1][y - 1].rgbtGreen : 0);
 			rgbtGreen_gy += -2 * ((i - 1 >= 0 && i - 1 < height) ? image[i - 1][y].rgbtGreen : 0);
-			rgbtGreen_gy += -1 * ((i - 1 >= 0 && i - 1 < height && y + 1 > 0 && y + 1 < width) ? image[i - 1][y + 1].rgbtGreen : 0);
-			rgbtGreen_gy += 1 * ((i + 1 >= 0 && i + 1 < height && y - 1 > 0 && y - 1 < width) ? image[i + 1][y - 1].rgbtGreen : 0);
+			rgbtGreen_gy += -1 * ((i - 1 >= 0 && i - 1 < height && y + 1 >= 0 && y + 1 < width) ? image[i - 1][y + 1].rgbtGreen : 0);
+			rgbtGreen_gy += 1 * ((i + 1 >= 0 && i + 1 < height && y - 1 >= 0 && y - 1 < width) ? image[i + 1][y - 1].rgbtGreen : 0);
 			rgbtGreen_gy += 2 * ((i + 1 >= 0 && i + 1 < height) ? image[i + 1][y].rgbtGreen : 0);
-			rgbtGreen_gy += 1 * ((i + 1 >= 0 && i + 1 < height && y + 1 > 0 && y + 1 < width) ? image[i + 1][y + 1].rgbtGreen : 0);
+			rgbtGreen_gy += 1 * ((i + 1 >= 0 && i + 1 < height && y + 1 >= 0 && y + 1 < width) ? image[i + 1][y + 1].rgbtGreen : 0);
 
 			rgbtRed_gy += -1 * ((i - 1 >= 0 && i - 1 < height && y - 1 >= 0 && y - 1 < width) ? image[i - 1][y - 1].rgbtRed : 0);
 			rgbtRed_gy += -2 * ((i - 1 >= 0 && i - 1 < height) ? image[i - 1][y].rgbtRed : 0);
@@ -198,16 +198,16 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 			rgbtGreen_gx += 2 * ((y + 1 >= 0 && y + 1 < width) ? image[i][y + 1].rgbtGreen : 0);
 			rgbtGreen_gx += 1 * ((i + 1 >= 0 && i + 1 < height && y + 1 >= 0 && y + 1 < width) ? image[i + 1][y + 1].rgbtGreen : 0);
 
-			rgbtRed_gx	+= -1 * ((i - 1 >= 0 && i - 1 < height && y - 1 >= 0 && y - 1 < width) ? image[i - 1][y - 1].rgbtRed : 0);
+			rgbtRed_gx += -1 * ((i - 1 >= 0 && i - 1 < height && y - 1 >= 0 && y - 1 < width) ? image[i - 1][y - 1].rgbtRed : 0);
 			rgbtRed_gx += -2 * ((y - 1 >= 0 && y - 1 < width) ? image[i][y - 1].rgbtRed : 0);
 			rgbtRed_gx += -1 * ((i + 1 >= 0 && i + 1 < height && y - 1 >= 0 && y - 1 < width) ? image[i + 1][y - 1].rgbtRed : 0);
-			rgbtRed_gx	+= 1 * ((i - 1 >= 0 && i - 1 < height && y + 1 >= 0 && y + 1 < width) ? image[i - 1][y + 1].rgbtRed : 0);
-			rgbtRed_gx	+= 2 * ((y + 1 >= 0 && y + 1 < width) ? image[i][y + 1].rgbtRed : 0);
-			rgbtRed_gx	+= 1 * ((i + 1 >= 0 && i + 1 < height && y + 1 >= 0 && y + 1 < width) ? image[i + 1][y + 1].rgbtRed : 0);
+			rgbtRed_gx += 1 * ((i - 1 >= 0 && i - 1 < height && y + 1 >= 0 && y + 1 < width) ? image[i - 1][y + 1].rgbtRed : 0);
+			rgbtRed_gx += 2 * ((y + 1 >= 0 && y + 1 < width) ? image[i][y + 1].rgbtRed : 0);
+			rgbtRed_gx += 1 * ((i + 1 >= 0 && i + 1 < height && y + 1 >= 0 && y + 1 < width) ? image[i + 1][y + 1].rgbtRed : 0);
 
 
-			if (((rgbtBlue_gy > -5 && rgbtBlue_gy < 5) && (rgbtGreen_gy > -5 && rgbtGreen_gy < 5) && (rgbtRed_gy > -5 && rgbtRed_gy < 5))
-				&& ((rgbtBlue_gx > -5 && rgbtBlue_gx < 5) && (rgbtGreen_gx > -5 && rgbtGreen_gx < 5) && (rgbtRed_gx > -5 && rgbtRed_gx < 5)))
+			if (((rgbtBlue_gy > -10 && rgbtBlue_gy < 10) && (rgbtGreen_gy > -10 && rgbtGreen_gy < 10) && (rgbtRed_gy > -10 && rgbtRed_gy < 10))
+				&& ((rgbtBlue_gx > -10 && rgbtBlue_gx < 10) && (rgbtGreen_gx > -10 && rgbtGreen_gx < 10) && (rgbtRed_gx > -10 && rgbtRed_gx < 10)))
 			{
 				temp_image[i][y].rgbtBlue = image[i][y].rgbtBlue;
 				temp_image[i][y].rgbtGreen = image[i][y].rgbtGreen;
@@ -215,9 +215,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 			}
 			else
 			{
-				avg_blue = sqrt(pow(rgbtBlue_gy, 2) + pow(rgbtBlue_gx, 2));
-				avg_green = sqrt(pow(rgbtGreen_gy, 2) + pow(rgbtGreen_gx, 2));
-				avg_red = sqrt(pow(rgbtRed_gy, 2) + pow(rgbtRed_gx, 2));
+				avg_blue = round(sqrt(pow(rgbtBlue_gy, 2) + pow(rgbtBlue_gx, 2)));
+				avg_green = round(sqrt(pow(rgbtGreen_gy, 2) + pow(rgbtGreen_gx, 2)));
+				avg_red = round(sqrt(pow(rgbtRed_gy, 2) + pow(rgbtRed_gx, 2)));
 
 				temp_image[i][y].rgbtBlue = avg_blue > 255 ? 255 : (BYTE) avg_blue;
 				temp_image[i][y].rgbtGreen = avg_green > 255 ? 255 : (BYTE) avg_green;
