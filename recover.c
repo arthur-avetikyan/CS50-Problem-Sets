@@ -67,7 +67,7 @@ void recover_image(BYTE *memory_block, int *file_name, bool *counter, char *name
 {
     if (!*counter)
     {
-        *file_name < 10 ? sprintf(name, "00%i.jpg", *file_name) : *file_name > 10
+        *file_name < 10 ? sprintf(name, "00%i.jpg", *file_name) : *file_name >= 10
         && *file_name < 100 ? sprintf(name, "0%i.jpg", *file_name) : sprintf(name, "%i.jpg", *file_name);
     }
 
