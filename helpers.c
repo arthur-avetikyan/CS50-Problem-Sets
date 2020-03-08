@@ -200,8 +200,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 			rgbtRed_gx += 2 * ((y + 1 >= 0 && y + 1 < width) ? image[i][y + 1].rgbtRed : 0);
 			rgbtRed_gx += 1 * ((i + 1 >= 0 && i + 1 < height && y + 1 >= 0 && y + 1 < width) ? image[i + 1][y + 1].rgbtRed : 0);
 
-			if (((rgbtBlue_gy > -10 && rgbtBlue_gy < 10) && (rgbtGreen_gy > -10 && rgbtGreen_gy < 10) && (rgbtRed_gy > -10 && rgbtRed_gy < 10))
-			&& ((rgbtBlue_gx > -10 && rgbtBlue_gx < 10) && (rgbtGreen_gx > -10 && rgbtGreen_gx < 10) && (rgbtRed_gx > -10 && rgbtRed_gx < 10)))
+			int edge = 50;
+
+			if (((rgbtBlue_gy > -edge && rgbtBlue_gy < edge) && (rgbtGreen_gy > -edge && rgbtGreen_gy < edge) && (rgbtRed_gy > -edge && rgbtRed_gy < edge))
+			&& ((rgbtBlue_gx > -edge && rgbtBlue_gx < edge) && (rgbtGreen_gx > -edge && rgbtGreen_gx < edge) && (rgbtRed_gx > -edge && rgbtRed_gx < edge)))
 			{
 				temp_image[i][y].rgbtBlue = image[i][y].rgbtBlue;
 				temp_image[i][y].rgbtGreen = image[i][y].rgbtGreen;
@@ -230,5 +232,3 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 		}
 	}
 }
-
-
