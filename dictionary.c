@@ -40,7 +40,7 @@ bool check(const char *word)
     //     return false;
     // }
 
-    for(cursor = table[index]; cursor != NULL; cursor = cursor->next)
+    for (cursor = table[index]; cursor != NULL; cursor = cursor->next)
     {
         if (strcasecmp(word, cursor->word) == 0)
         {
