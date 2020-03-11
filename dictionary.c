@@ -33,6 +33,7 @@ bool check(const char *word)
 {
     bool is_found = false;
     int index = hash(word);
+
     node *cursor = malloc(sizeof(node));
     if (cursor == NULL)
     {
@@ -113,8 +114,9 @@ bool load(const char *dictionary)
         word_count++;
     }
 
-    free(file);
+    fclose(file);
     free(word);
+
     return true;
 }
 
