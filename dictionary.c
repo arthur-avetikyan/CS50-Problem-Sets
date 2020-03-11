@@ -31,25 +31,26 @@ void destroy(node *n);
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-    bool is_found = false;
+    //bool is_found = false;
     int index = hash(word);
 
-    node *cursor = malloc(sizeof(node));
-    if (cursor == NULL)
-    {
-        return false;
-    }
+    node *cursor;// = malloc(sizeof(node));
+    // if (cursor == NULL)
+    // {
+    //     return false;
+    // }
 
     for(cursor = table[index]; cursor != NULL; cursor = cursor->next)
     {
         if (strcasecmp(word, cursor->word) == 0)
         {
-            is_found = true;
+            //free(cursor);
+            return true;
         }
     }
 
-    free(cursor);
-    return is_found;
+    //free(cursor);
+    return false;
 }
 
 // Hashes word to a number
