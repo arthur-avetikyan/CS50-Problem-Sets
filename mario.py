@@ -5,13 +5,8 @@ def main():
         h = input().isdigit()
     draw_pyramid(h)
 
-def ask_for_number():
-    print("Height: ", end="")
-    h = int(input())
-    if 0 < h < 9:
-        return h
-    else:
-        ask_for_number()
+# Draw pyramid
+
 
 def draw_pyramid(h):
     for i in range(h):
@@ -22,6 +17,8 @@ def draw_pyramid(h):
         print_right_column(i)
         print()
 
+# Draw left column
+
 
 def print_left_column(y, z):
     for n in range(y):
@@ -29,8 +26,12 @@ def print_left_column(y, z):
     for n in range(z):
         print("#", end="")
 
+# Draw right column
+
+
 def print_right_column(i):
     for y in range(i + 1):
         print("#", end="")
+
 
 main()
