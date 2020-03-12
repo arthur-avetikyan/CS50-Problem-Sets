@@ -2,7 +2,9 @@ def main():
     h = 0
     while not 0 < h < 9:
         print("Height: ", end="")
-        h = input().isdigit()
+        i = input()
+        if i.isdigit():
+            h = int(i)
     draw_pyramid(h)
 
 # Draw pyramid
