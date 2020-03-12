@@ -1,6 +1,6 @@
 def main():
     exit = True
-    card_num = 0;
+    card_num = 0
 
     while exit:
         print("Number: ", end="")
@@ -13,6 +13,8 @@ def main():
             exit = False
 
 # Determine card type.
+
+
 def determine_card_type(card_num):
     if (card_num % 10**15 - card_num % 10**13) / 10**13 == 34 or (card_num % 10**15 - card_num % 10**13) / 10**13 == 37:
         print("AMEX")
@@ -24,6 +26,8 @@ def determine_card_type(card_num):
         print("INVALID")
 
 # Card number validation test.
+
+
 def test_card_number(card_num):
     if card_num < 10**17 and card_num >= 10**14:
         evenDigitsSum = 0
