@@ -35,7 +35,7 @@ def count_words(text):
 def count_sentences(text):
     count = 0
     for s in text:
-        if s in ('.', '!', '?'):
+        if s in ('.', '!', '?', '...'):
             count += 1
     return count
 
