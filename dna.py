@@ -26,7 +26,7 @@ for key in dna_db[0]:
     if not key == 'name':
         char = 0
         while char in range(len(dna_sample[0])):
-            if dna_sample[0][char : char + len(key)] == key:
+            if dna_sample[0][char: char + len(key)] == key:
                 first_count += 1
                 char += len(key) - 1
             elif count < first_count:
