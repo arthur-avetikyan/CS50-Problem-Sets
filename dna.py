@@ -32,12 +32,12 @@ for key in dna_db[0]:
             elif count < first_count:
                 count = first_count
                 first_count = 0
+            else:
+                first_count = 0
             char += 1
         seq.append(str(count))
         count = 0
         first_count = 0
-print(seq)
-
 
 for row in dna_db:
     if not row[0] == 'name':
