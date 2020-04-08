@@ -243,6 +243,7 @@ function PlayState:update(dt)
                 self.resizePoints = 7000
                 self.powerUpPoints = 8000
                 self.paddle.isPowered['threeBall'] = false
+                self.power.isPowering = false
 
                 gSounds['hurt']:play()
 
@@ -266,7 +267,7 @@ function PlayState:update(dt)
                 table.remove(self.balls, k)
                 if table.getn(self.balls) == 1 then
                     self.paddle.isPowered['threeBall'] = false
-                    self.paddle.isPowered['keyUp'] = false
+                    self.paddle.isPowered['keyUp'] = false                    
                     self.hitCount = 0
                     self.resizePoints = 7000
                     self.powerUpPoints = 8000
